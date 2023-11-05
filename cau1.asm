@@ -33,35 +33,35 @@ PUBLIC @setthuoctinh$qv
 mov  ds,ax
    L_DTT0:
            clrscr
-           HienString dtt1	; Hiện thông báo dtt1		
+           HienString dtt1		
            lea    dx,buff
-           call   GET_FILE_NAME ; Vào tên tệp cần lấy thuộc tính 
-			HienString dtt2	; Hiện thông báo dtt2
-			call  VAO_SO_N     ; Chọn thuộc tính (từ 0 -> 15)
-			mov   cx,ax		; Đặt thuộc tính vào CX
+           call   GET_FILE_NAME 
+			HienString dtt2	
+			call  VAO_SO_N     
+			mov   cx,ax		
 			cmp   cx,8
 			jb       L_DTT1
 	add    cx,24	
   L_DTT1:	
-	lea     dx,file_name	; Thuộc tính có trong CX 
-	mov   al,1		; Đặt thuộc tính
+	lea     dx,file_name	
+	mov   al,1		
 	mov  ah,43h
 	int    21h
 	jnc   L_DTT2
-	HienString Err_DTT; Hiện thông báo Err_DTT
+	HienString Err_DTT
 	jmp  Exit_DTT
     L_DTT2:
-	HienString Suc_DTT; Hiện thông báo Suc_DTT
+	HienString Suc_DTT
     Exit_DTT:
-          HienString tieptuc      ; Hiện thông báo tieptuc
-          mov  ah,1                   ; Chờ 1 ký tự từ bàn phím
+          HienString tieptuc      
+          mov  ah,1                   
           int     21h                         
-          cmp   al,'c'                 ; Ký tự vào có phải 'c'
-          jne    Thoat_DTT      ; Không phải 'c' thì nhảy đế Thoat_DTT,
-          jmp    L_DTT0	; còn đúng là 'c' thì nhảy về L_DTT0
+          cmp   al,'c'                
+          jne    Thoat_DTT      
+          jmp    L_DTT0	
    Thoat_DTT:                     
 			ret
 @setthuoctinh$qv ENDP
-INCLUDE lib2.asm		; lib2.asm chứa CT con VAO_SO_N
-INCLUDE lib4.asm		; lib3.asm chứa CT con GET_FILE_NAME
+INCLUDE lib2.asm		
+INCLUDE lib4.asm		
 END
