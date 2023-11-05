@@ -20,12 +20,12 @@ PUBLIC @FPU$qv
     L_DTT1:
         HienString co
     L_DTT2:
-          HienString tieptuc	; Hiện thông báo M5 (‘Co tiep tuc CT (c/k)? ‘)
-	mov  ah,1		; Chờ nhận 1 ký tự từ bàn phím
+          HienString tieptuc	
+	mov  ah,1		
 	int     21h
-	cmp  al,'c'		; Ký tự vừa nhận có phải là ký tự ‘c’ ?
-	jne    Exit		; Nếu không phải thì nhảy đến nhãn Exit (về DOS)
-	jmp   L_DTT0		; Còn không thì quay về đầu (bắt đầu lại chương trình)
+	cmp  al,'c'		
+	jne    Exit		
+	jmp   L_DTT0
    Exit:
 	 ret
 @FPU$qv ENDP
