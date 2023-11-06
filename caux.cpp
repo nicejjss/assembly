@@ -21,9 +21,9 @@ void main()
       cout<<"\n\n\n     Co tiep tuc CT (c/k)?";
       tl=getch();
       if(tl=='c') {
-      L1:
+      L1:   clrscr();
             cout<<"\n            CAC CHUC NANG CUA BTL";
-            cout<<"\n            ---------***----------";
+            cout<<"\n            ---------***---------";
             cout<<"\n\n     1. Dat thuoc tinh cho tep";
             cout<<"\n     2. Tinh trung binh cong 2 so nguyen";
             cout<<"\n     3. Lieu may tinh co FPU?";
